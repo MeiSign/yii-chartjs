@@ -23,6 +23,7 @@ Installation
 5. Use the widgets:
     
 Bar Chart
+---------
 
         <?php 
             $this->widget(
@@ -45,6 +46,7 @@ Bar Chart
         ?>
 
 Line Chart
+----------
 
         <?php 
             $this->widget(
@@ -76,6 +78,7 @@ Line Chart
         ?>
 
 Radar Chart
+-----------
 
         <?php 
             $this->widget(
@@ -107,6 +110,7 @@ Radar Chart
         ?>
 
 Polar Area Chart
+----------------
 
         <?php 
             $this->widget(
@@ -139,6 +143,7 @@ Polar Area Chart
         ?>
         
 Pie Chart
+---------
 
         <?php 
             $this->widget(
@@ -171,6 +176,7 @@ Pie Chart
         ?>
 
 Doughnut Chart
+--------------
 
         <?php 
             $this->widget(
