@@ -3,7 +3,7 @@ yii-chartjs Extension
 
 Yii Extension for ChartJS library(http://www.chartjs.org/)
 
-This is a simple extension to use the chartJs library as yii widgets.
+This is a simple wrapper to use the ChartJS charts as yii framework php widgets.
 
 Installation
 ============
