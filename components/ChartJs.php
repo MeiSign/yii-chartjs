@@ -1,0 +1,50 @@
+<?php
+
+class ChartJs extends CApplicationComponent
+{
+    /**
+    * @var boolean indicates whether assets should be republished on every request.
+    */
+    public $forceCopyAssets = false;
+
+    /**
+    * @var assets handle
+    */
+    protected $_assetsUrl;
+
+    /**
+    * Register the ChartJS lib
+    */
+    public function register()
+    {
+        $cs = Yii::app()->getClientScript();
+        $cs->registerCoreScript('jquery');
+        $filename = YII_DEBUG ? 'Chart.js' : 'Chart.min.js';
+        $cs->registerScriptFile($this->getAssetsUrl().'/js/'.$filename, CClientScript::POS_HEAD);
+    }
+
+    /**
+    * Returns the URL to the published assets folder.
+    * @return string the URL
+    */
+    protected function getAssetsUrl()
+    {
+        if (isset($this->_assetsUrl))
+            return $this->_assetsUrl;
+        else
+        {
+            $assetsPath = Yii::getPathOfAlias('chartjs.assets');
+            $assetsUrl = Yii::app()->assetManager->publish($assetsPath, true, -1, $this->forceCopyAssets);
+            return $this->_assetsUrl = $assetsUrl;
+        }
+    }
+
+    /**
+    * Returns the extension version number.
+    * @return string the version
+    */
+    public function getVersion()
+    {
+        return '0.0.1';
+    }
+}
