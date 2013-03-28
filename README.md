@@ -20,8 +20,6 @@ Installation
 4. Add in the preload section of your main.php config(myApp/protected/config/main.php)  
 
         'preload' => array(
-            'log',
-            'bootstrap',
             'chartjs'
         ),
 
