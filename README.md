@@ -17,8 +17,13 @@ Installation
     'class' => 'chartjs.components.ChartJs',
 ),`
 
-4. Add to your main layout file(myApp/views/layout/main.php)  
-`<?php Yii::app()->chartjs->register(); ?>`
+4. Add in the preload section of your main.php config(myApp/protected/config/main.php)  
+
+        'preload' => array(
+            'log',
+            'bootstrap',
+            'chartjs'
+        ),
 
 5. Use the widgets:
     
