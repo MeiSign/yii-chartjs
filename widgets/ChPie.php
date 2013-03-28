@@ -87,7 +87,7 @@ class ChPie extends CWidget
                     break;
                 
                 case 'below' :
-                    echo CHtml::openTag('div', array('class' => 'labels-below'));
+                    echo CHtml::openTag('div', array());
                     $this->drawLabels();
                     echo CHtml::closeTag('div');
                     break;
