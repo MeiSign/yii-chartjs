@@ -44,6 +44,11 @@ class ChPie extends CWidget
      */
     public $htmlId;
     /**
+     * @var position of the labels for the chart
+     */
+    public $labelPosition;
+    
+    /**
      * @var widget count to generate html id
      */
     private static $_containerId = 0;
@@ -73,6 +78,25 @@ class ChPie extends CWidget
     {
         echo CHtml::closeTag('canvas');
 
+        if (isset($this->labelPosition)) {
+            switch ($this->labelPosition) {
+                case 'beside':
+                    echo CHtml::openTag('div', array('class' => 'labels-beside'));
+                    $this->drawLabels();
+                    echo CHtml::closeTag('div');
+                    break;
+                
+                case 'below' :
+                    echo CHtml::openTag('div', array('class' => 'labels-below'));
+                    $this->drawLabels();
+                    echo CHtml::closeTag('div');
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
         $data = CJSON::encode($this->datasets);
         $options = CJSON::encode($this->options);
 
@@ -81,6 +105,22 @@ class ChPie extends CWidget
             __CLASS__.'#'.$this->htmlId, 
             "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).Pie(".$data.",".$options.");"
         );
+    }
+
+    /**
+     * Draws the labels for the chart
+     */
+    private function drawLabels()
+    {
+        foreach ($this->datasets as $dataset) {
+            if (isset($dataset['label'])) {
+                $attributes['class'] = 'chart-label';
+                $attributes['style'] = 'background-color: '.$dataset['color'].';';
+                echo CHtml::openTag('span', $attributes);
+                echo $dataset['label'];
+                echo CHtml::closeTag('span');
+            }
+        }
     }
 
     /**
