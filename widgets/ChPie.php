@@ -44,9 +44,9 @@ class ChPie extends CWidget
      */
     public $htmlId;
     /**
-     * @var position of the labels for the chart
+     * @var draw labels for this chart if true
      */
-    public $labelPosition;
+    public $drawLabels = false;
     
     /**
      * @var widget count to generate html id
@@ -78,23 +78,8 @@ class ChPie extends CWidget
     {
         echo CHtml::closeTag('canvas');
 
-        if (isset($this->labelPosition)) {
-            switch ($this->labelPosition) {
-                case 'beside':
-                    echo CHtml::openTag('div', array('class' => 'labels-beside'));
-                    $this->drawLabels();
-                    echo CHtml::closeTag('div');
-                    break;
-                
-                case 'below' :
-                    echo CHtml::openTag('div', array());
-                    $this->drawLabels();
-                    echo CHtml::closeTag('div');
-                    break;
-
-                default:
-                    break;
-            }
+        if ($this->drawLabels) {
+            $this->drawLabels();
         }
 
         $data = CJSON::encode($this->datasets);
@@ -112,6 +97,7 @@ class ChPie extends CWidget
      */
     private function drawLabels()
     {
+        echo CHtml::openTag('div', array('class' => 'labels'));
         foreach ($this->datasets as $dataset) {
             if (isset($dataset['label'])) {
                 $attributes['class'] = 'chart-label';
@@ -121,6 +107,7 @@ class ChPie extends CWidget
                 echo CHtml::closeTag('span');
             }
         }
+        echo CHtml::closeTag('div');
     }
 
     /**

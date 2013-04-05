@@ -124,22 +124,27 @@ Polar Area Chart
                     'width' => 600,
                     'height' => 300,
                     'htmlOptions' => array(),
+                    'drawLabels' => true,
                     'datasets' => array(
                         array(
                             "value" => 50,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(220,30, 70,1)",
+                            "label" => "Hunde"
                         ),
                         array(
                             "value" => 25,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(66,66,66,1)",
+                            "label" => "Katzen"
                         ),
                         array(
                             "value" => 40,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(100,100,220,1)",
+                            "label" => "Vögel"
                         ),
                         array(
                             "value" => 15,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(20,120,120,1)",
+                            "label" => "Mäuse"
                         )
                     ),
                     'options' => array()
@@ -157,7 +162,7 @@ Pie Chart
                     'width' => 600,
                     'height' => 300,
                     'htmlOptions' => array(),
-                    'labelPosition' => 'beside', // 'below', 'none'(default)
+                    'drawLabels' => true,
                     'datasets' => array(
                         array(
                             "value" => 50,
@@ -195,22 +200,27 @@ Doughnut Chart
                     'width' => 600,
                     'height' => 300,
                     'htmlOptions' => array(),
+                    'drawLabels' => true,
                     'datasets' => array(
                         array(
                             "value" => 50,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(220,30, 70,1)",
+                            "label" => "Hunde"
                         ),
                         array(
                             "value" => 25,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(66,66,66,1)",
+                            "label" => "Katzen"
                         ),
                         array(
                             "value" => 40,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(100,100,220,1)",
+                            "label" => "Vögel"
                         ),
                         array(
                             "value" => 15,
-                            "color" => "rgba(220,220,220,1)"
+                            "color" => "rgba(20,120,120,1)",
+                            "label" => "Mäuse"
                         )
                     ),
                     'options' => array()

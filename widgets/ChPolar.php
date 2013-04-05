@@ -44,6 +44,10 @@ class ChPolar extends CWidget
      */
     public $htmlId;
     /**
+     * @var draw labels for this chart if true
+     */
+    public $drawLabels = false;
+    /**
      * @var widget count to generate html id
      */
     private static $_containerId = 0;
@@ -73,6 +77,11 @@ class ChPolar extends CWidget
     {
         echo CHtml::closeTag('canvas');
 
+        if ($this->drawLabels) {
+            $this->drawLabels();
+        }
+
+
         $data = CJSON::encode($this->datasets);
         $options = CJSON::encode($this->options);
 
@@ -81,6 +90,24 @@ class ChPolar extends CWidget
             __CLASS__.'#'.$this->htmlId, 
             "var chart = new Chart($(\"#".$this->htmlId."\").get(0).getContext(\"2d\")).PolarArea(".$data.",".$options.");"
         );
+    }
+
+    /**
+     * Draws the labels for the chart
+     */
+    private function drawLabels()
+    {
+        echo CHtml::openTag('div', array('class' => 'labels'));
+        foreach ($this->datasets as $dataset) {
+            if (isset($dataset['label'])) {
+                $attributes['class'] = 'chart-label';
+                $attributes['style'] = 'background-color: '.$dataset['color'].';';
+                echo CHtml::openTag('span', $attributes);
+                echo $dataset['label'];
+                echo CHtml::closeTag('span');
+            }
+        }
+        echo CHtml::closeTag('div');
     }
 
     /**
