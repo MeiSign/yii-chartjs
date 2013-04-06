@@ -1,6 +1,8 @@
 yii-chartjs Extension
 =====================
 
+![ChartJs](http://www.img-host.de/bild.php/38141,chartsC3E4P.jpg "ChartJS")
+
 Yii Extension for ChartJS library(http://www.chartjs.org/)
 
 This is a simple wrapper to use the ChartJS charts as yii framework php widgets.
