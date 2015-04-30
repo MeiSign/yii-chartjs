@@ -1,0 +1,14 @@
+{
+  "name" : "imalvinz/yii-chartjs",
+  "description": "Chart.js for Yii",
+  "authors" : [
+    {
+      "name": "Alvin Zacarias",
+      "email": "alvin.zacarias@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.3.0"
+  }
+}
